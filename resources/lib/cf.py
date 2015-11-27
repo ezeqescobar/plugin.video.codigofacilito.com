@@ -12,6 +12,7 @@ T_ERROR_SERVER = 30002
 T_ERROR_COURSES = 30003
 T_ERROR_VIDEOS = 30004
 
+agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:32.0) Gecko/20100101 Firefox/32.0'
 
 def log(message):
     xbmc.log(message)
@@ -22,7 +23,7 @@ def alert(title, message):
 def get_courses():
     url = BASE_URL + '/courses'
     req = urllib2.Request(url)
-    req.add_header('User-agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:32.0) Gecko/20100101 Firefox/32.0')
+    req.add_header('User-agent', agent)
     soup = BeautifulSoup(urllib2.urlopen(req).read(), convertEntities=BeautifulSoup.HTML_ENTITIES)
 
     output = []
@@ -57,7 +58,7 @@ def get_courses():
 def get_course(url):
     url = BASE_URL + url
     req = urllib2.Request(url)
-    req.add_header('User-agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:32.0) Gecko/20100101 Firefox/32.0')
+    req.add_header('User-agent', agent)
     soup = BeautifulSoup(urllib2.urlopen(req).read(), convertEntities=BeautifulSoup.HTML_ENTITIES)
     output = []
 
@@ -75,7 +76,7 @@ def get_course(url):
 def get_video(url):
     url = BASE_URL + url
     req = urllib2.Request(url)
-    req.add_header('User-agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:32.0) Gecko/20100101 Firefox/32.0')
+    req.add_header('User-agent', agent)
     soup = BeautifulSoup(urllib2.urlopen(req).read(), convertEntities=BeautifulSoup.HTML_ENTITIES)
 
     return soup.find(id='youtube_video_id').get('value')
