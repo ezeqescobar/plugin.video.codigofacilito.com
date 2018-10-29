@@ -1,3 +1,7 @@
+[B]1.0.8[/B] (2018-10-28)
+
+- Scrapper included in script
+
 [B]1.0.7[/B] (2016-10-09)
 
 - Fix scrapper
